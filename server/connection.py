@@ -5,7 +5,6 @@ import xmlrpc.client
 app = Flask(__name__)
 CORS(app)
 
-# Configuración de Odoo
 url = "https://tralsa-new-test2.odoo.com"
 db = "tralsa-new-test2"
 username = "api-pruebatecnica@trigono.com"
@@ -27,9 +26,9 @@ def get_sales_data():
 
 @app.route('/api/sales', methods=['GET'])
 def get_sales():
-    # Llamada a la función que obtiene los datos de Odoo
+    
     sales = get_sales_data()
-    # Retornar los datos como respuesta JSON
+
     return jsonify(sales)
 
 if __name__ == '__main__':
