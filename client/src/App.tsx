@@ -10,7 +10,7 @@ const Sales: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get<Sale[]>("https://server-pps70ksu9-adrians-projects-8581db70.vercel.app")
+    axios.get<Sale[]>("https://prueba-tecnica-vwdx.onrender.com/api/sales")
       .then(response => {
         setSales(response.data);
         setLoading(false);
