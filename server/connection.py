@@ -1,14 +1,17 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import xmlrpc.client
+from vercel_wsgi import handle_request
 
 app = Flask(__name__)
-CORS(app)
+cors = CORS(app)
 
 url = "https://tralsa-new-test2.odoo.com"
 db = "tralsa-new-test2"
 username = "api-pruebatecnica@trigono.com"
 password = "12345"
+
+
 
 def get_sales_data():
     common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
@@ -24,7 +27,7 @@ def get_sales_data():
 
     return sales
 
-@app.route('/api/sales', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_sales():
     
     sales = get_sales_data()
@@ -32,4 +35,7 @@ def get_sales():
     return jsonify(sales)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
+
+def handler(request, *args, **kwargs):
+return handle_request(app, request, *args, **kwargs)

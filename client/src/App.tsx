@@ -10,7 +10,7 @@ const Sales: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get<Sale[]>("http://localhost:5000/api/sales")
+    axios.get<Sale[]>("https://server-pps70ksu9-adrians-projects-8581db70.vercel.app")
       .then(response => {
         setSales(response.data);
         setLoading(false);
