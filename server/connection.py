@@ -37,5 +37,5 @@ def get_sales():
 if __name__ == '__main__':
     app.run()
 
-def handler(request, *args, **kwargs):
-return handle_request(app, request, *args, **kwargs)
+# def handler(request, *args, **kwargs):
+# return handle_request(app, request, *args, **kwargs)
