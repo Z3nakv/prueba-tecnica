@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import xmlrpc.client
-from vercel_wsgi import handle_request
+# from vercel_wsgi import handle_request
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -27,7 +27,7 @@ def get_sales_data():
 
     return sales
 
-@app.route('/', methods=['GET'])
+@app.route('/api/sales', methods=['GET'])
 def get_sales():
     
     sales = get_sales_data()
